@@ -208,9 +208,18 @@
 .nivel1-6{
   position: absolute;
   top: 312px;
-  left: -113px;
+  left: -150px;
   width: 256px;
   height: 296px;
+  z-index: 0;
+}
+.nivel1-7{
+  position: absolute;
+  top: 549px;
+  left: 45px;
+  width: 206px;
+  height: 353px;
+
 }
 .lawer{
   width: 800px;
