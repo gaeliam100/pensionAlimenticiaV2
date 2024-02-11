@@ -1,0 +1,22 @@
+---
+import Infografia from '../components/Infografia.astro';
+interface Props{
+    sourceImage: string;
+    altImg: string;
+    }
+    const sourceInfo= [
+    {
+        sourceImage: '/images/infografia_compensatoria.webp',
+        altImg: 'Infografia'
+    },
+    {
+        sourceImage: '/img/infografia.png',
+        altImg: 'Infografia'
+    }
+    ]
+---
+<section class="flex items-center justify-evenly min-h-screen">
+{sourceInfo.map(infog=>(
+     <Infografia sourceImage={infog.sourceImage} altImg={infog.altImg}/>
+))}
+</section>

@@ -1,0 +1,37 @@
+---
+const {titleList, textList} = Astro.props;
+
+---
+<li before=" " class="box relative  
+before:content-[attr(before)]
+before:bg-blue-400
+before:absolute
+before:w-[6px]
+before:h-full
+before:ease-out
+before:duration-500
+hover:before:w-full
+h-[5rem]
+w-full
+sm:w-[525px]
+ bg-white 
+ cursor-pointer shadow-xl
+ ease-in-out
+ duration-300
+ ">
+    <div class="content  hover:text-white">
+        <div class="icon 
+        relative 
+        min-w-[60px]
+        flex
+        hover:[&>*:nth-child(3)>*h3]
+        justify-center
+        items-center
+        ">
+            <i class="fa-solid fa-pen text-xl text-blue-400"></i>
+        </div>
+        <div class="sm:px-2">
+            <h4 class="text-sm sm:text-md md:text-md hover:text-white">{titleList}</h4>
+        </div>
+    </div>
+</li>

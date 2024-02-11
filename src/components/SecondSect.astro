@@ -1,0 +1,58 @@
+---
+import Section from "./Section.astro";
+import Title from "./Title.astro";
+const {titleF,buttonDescription,description,imageAlt="Imagen descripitva"} = Astro.props;
+const listItem=[
+    {
+        id:'first',
+        title:"¡Obtén la pensión alimenticia que mereces!",
+        description:"Si tu ex pareja tiene una capacidad financiera suficiente para pagar una pensión alimenticia y se niega a hacerlo, un juez puede obligarla a hacerlo. ",
+    },
+    {
+        id:'second',
+        title:"¿Sabías que...?",
+        description:"La pensión alimenticia no solo puede ser otorgada para cubrir las necesidades básicas de los hijos menores de edad, sino también de hijos mayores que tengan alguna discapacidad o que estén estudiando una carrera universitaria.",
+    },
+    {
+        id:'third',
+        title:"¿Necesitas modificarla...?",
+        description:"No te preocupes, podemos ayudarte con eso. La ley te permite ajustar la pensión alimenticia a nuevas necesidades y circunstancias. Solo necesitas presentar una solicitud ante el juez de familia. ¡No te rindas! Resuelve tus problemas con la pensión alimenticia ahora mismo.",
+    },
+    {
+        id:'fourth',
+        title:"¿Te dedicaste al hogar durante tu matrimonio...?",
+        description:"Si dedicaste tu matrimonio a las labores del hogar, también tienes derecho a recibir una pensión alimenticia compensatoria. Contáctanos para obtener más información y asesoramiento legal.",
+    },
+]
+---
+<section id="seccion2" class="grid sm:grid-cols-1 sm:place-items-center  min-h-screen  lg:grid-cols-2 xl:grid-cols-2 bg-white rounded-t-[2em]">
+<div class="justify-center xs:max-w-xl lg:justify-start flex flex-col place-items-start w-full p-3 max-w-3xl">
+    <Title titlePage="Todo lo que debes saber" textAlign="left"/>
+    <h2 class="text-xl text-center font-medium md:text-left text-black w-full py-4">Nosotros te proporcionamos información precisa</h2>
+    <div>
+        <p class="text-center md:text-left">
+            Las <strong>pensiones alimenticias</strong> son una obligación financiera que se establece tras una separación o 
+            divorcio para garantizar el sustento de los hijos menores de edad o del ex cónyuge.
+        </p>
+    </div>
+</div>
+
+    <div class="flex w-full items-center md:justify-center md:p-4">
+        <ul>
+            {
+                listItem.map((item,index)=>(
+                <li class="list-none w-full m-2 md:m-5 p-2 rounded-md shadow-md">
+                <input  type="radio" name="accordion" id={item.id} class="hidden" checked>
+                <label data-before="+" for={item.id} class="flex items-center p-2 text-lg font-semibold cursor-pointer before:content-[attr(data-before)] before:mr-4 before:text-3xl before:font-semibold">{item.title}</label>
+                <div class="content px-4 leading-26 max-h-0 overflow-hidden ease-in-out duration-500">
+                    <p>
+                        {item.description}
+                    </p>
+                </div>
+                </li>
+                ))
+            }
+        </ul>
+    </div>
+
+</section>

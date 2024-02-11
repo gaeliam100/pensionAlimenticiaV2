@@ -1,0 +1,55 @@
+---
+import Section from "./Section.astro";
+import ButtonD from "./button.astro";
+import Title from "./Title.astro";
+import Navigation from "./Navigation.astro";
+import Alimenticia from "./Alimenticia.astro";
+const {description,imageAlt="Imagen descripitva"} = Astro.props;
+---
+<div  class="w-full  bg-blue-especial ">
+    <div class="relative flex min-h-screen">
+        <section class="relative pt-40 pb-56 max-w-[1137px] mx-auto especial-w">
+            <div class="text-center">
+                <h1 class=" text-center text-4xl leading-10 lg:text-center lg:text-10xl mb-12 lg:leading-extra-loose text-navwhite font-semibold">
+                    <div class="flex items-center justify-center">
+                        <span class="mx-2">Pensión</span>
+                        <span class="">
+                           Alimenticia
+                        </span>
+                    </div>
+                     un paso hacia el bienestar familiar
+                </h1>
+                    <button
+                      class=" h-14 py-4 px-5  leading-7 gap-3 relative inline-flex justify-center items-center box-border rounded-lg outline-none text-center font-semibold  cursor-pointer text-base bg-white hover:bg-[#F5F5F5] open-modal"
+                    >
+                    ¡Conocenos hoy!
+                    </button>
+            </div>
+        <div class="conent-proof">
+        <div class="container-proof people">
+        <span class="svg-container ">
+        <img class="left" src="/images/law2.svg" alt="" srcset="">
+        </span>
+        </div>
+        <div class="nivel1 people">
+            <div class="nivel2">
+                <img src="/images/9.svg" alt="" class="niveli">
+            </div>
+        </div>
+        <div class="nivel1-2 people">
+            <span class="nivel2">
+                <img src="/images/Sexto.svg" alt="" class="niveli-2">
+            </span>
+        </div>
+        <div class="nivel1-4 people">
+            <span class="nivel2">
+                <img src="/images/Quinto.svg" alt="" class="niveli">
+        </div>
+         <div class="nivel1-6 people">
+                <span class="nivel2">
+                    <img src="/images/law4.svg" alt="" class="lawer">
+                </span>
+         </div>
+    </div>
+</div>
+

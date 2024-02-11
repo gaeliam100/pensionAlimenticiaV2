@@ -1,0 +1,16 @@
+---
+const {service ,serviceText ,urlImage,altImage}= Astro.props;
+---
+<div class="entry-up bg-transparent w-48 h-64 2xl:w-64  2xl:h-72 [perspective:1000px] group ease-in">
+    <div class="relative w-full h-full text-center transition-transform duration-300 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        <div class="absolute [backface-visibility:hidden] flex flex-col justify-evenly items-center rounded-nv shadow-lgm text-gray-800 h-full w-full ">
+            <img class="object-contain w-40 duration-1000 ease-in-out" src={urlImage} alt={altImage} loading="lazy" width=160 height=160>
+            <p class="text-center text-sm max-w-[10rem]">{service}</p>
+        </div>
+        <div class="absolute [backface-visibility:hidden] [transform:rotateY(180deg)] flex justify-center rounded-nv shadow-lgm text-gray-800 h-full w-full">
+            <p class="text-left text-sm px-4 py-4">
+                {serviceText}
+            </p>
+        </div>
+    </div>
+</div>

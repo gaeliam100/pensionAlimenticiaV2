@@ -1,0 +1,10 @@
+---
+interface Props {
+    titlePage: string;
+    textAlign: string;
+}
+const {titlePage,textAlign}=Astro.props
+---
+<h1 class=`text-3xl tracking-wide leading-tight text-${textAlign} font-semibold text-black-especial sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl`>
+    {titlePage}
+</h1>

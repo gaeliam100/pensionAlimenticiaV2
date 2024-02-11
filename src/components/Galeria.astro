@@ -1,0 +1,54 @@
+---
+import 'photoswipe/style.css';
+import Title from './Title.astro';
+const data = [
+{
+  title: 'PhotoSwipe Lightbox',
+  description: 'Esta es una infografia que habla sobre los derechos de las niñas y los niños cuando sus papas se separan nos cuenta sobre los alimentos ,visitas al menor, pensión alimenticia,Desarrollo emocional, entre otros temas.',
+  photo:'/images/InfografíaBeige.webp',
+  width: 800,
+  height: 2000
+},
+{
+  title: 'PhotoSwipe Lightbox',
+  description: 'Esta infografia nos da a cononcer importantes puntos de la pensión alimenticia, como el monto, la periodicidad, la forma de pago, entre otros, si te dedicaste al hogar durante el matrimonio ya que tienes derecho a una pensión alimenticia.',
+  photo:'/images/infografia_compensatoria.webp',
+  width: 900,
+  height: 2250
+}
+];
+---
+<section class=' w-full h-full bg-white '>
+    <Title titlePage="Infografías para el cambio" textAlign='center'  />
+    <div class=" flex flex-col justify-around md:flex-row " id="gallery">
+        {
+        data.map((item, index) => (
+        <a  href={item.photo} 
+            class="p-5 flex items-center justify-center"
+            data-pswp-width={item.width} 
+            data-pswp-height={item.height} 
+            target="_blank">
+          <img 
+          class="rounded-2xl object-cover max-w-full max-h-[100%] shadow-info" 
+          src={item.photo} 
+          alt={item.description} 
+          height="600"
+          width="400"
+          />
+          
+        </a>
+            ))
+        }
+    </div>
+</section>
+
+<script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox';
+    
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe')
+    });
+    lightbox.init();
+</script>

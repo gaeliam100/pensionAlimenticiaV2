@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/footer.astro';
+import FirstSect from '../components/FirstSect.astro';
+import SecondSect from '../components/SecondSect.astro';
+import ThirdthSect from '../components/ThirdthSect.astro';
+import FourthSection from '../components/fourthSection.astro';
+import FivethSect from '../components/FivethSect.astro';
+import SixSect from '../components/SixSect.astro';
+import Modal from '../components/Modal.astro';
+import Whats from '../components/whats.astro';
+import Galeria from '../components/Galeria.astro';
+import Back from '../components/Back.astro';
+---
+
+<Layout title="Pensión Alimenticia">
+	<Navigation />
+	<main class="">
+		<section class="fixed top-0  w-full ">
+			<div class="">
+				<FirstSect />
+			</div>	
+		</section>
+		<section class="relative z-10 mt-[100vh] border rounded-t-[2em]  w-full bg-white">
+			<section class="max-w-[1920px] mx-auto px-10">
+				<div class="my-12">
+					<SecondSect/>
+				</div>
+				<div class="">
+					<ThirdthSect/>
+				</div>
+				<div class="my-12">
+					<FourthSection/>
+				</div>
+				<div class="my-12">
+					<Galeria/>
+				</div>
+				<div class="my-12">
+					<FivethSect/>
+				</div>
+				<div class="my-12 grid place-items-center">
+					<SixSect/>
+				</div>
+				<Whats/>
+				<Modal/>
+			</section>
+		</section>
+	</main>
+</Layout>
+

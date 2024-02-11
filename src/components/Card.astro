@@ -1,0 +1,20 @@
+---
+interface Props {
+	titleCard: string;
+	bodyCard: string;
+	pathCard: string;
+	altcard:string;
+}
+
+const { pathCard, titleCard, bodyCard,altcard } = Astro.props;
+---
+
+<div class="flex sm:flex-grow exmd:flex-grow lg:flex-grow-0 w-full flex-col items-center justify-between sm:w-[250px] h-[400px] bg-white rounded-ssm  border transition-all duration-200 shadow-4xl p-[14px]">
+	<div class="w-[200px]">
+		<img src={pathCard} alt={altcard} class="aspect-auto object-cover" width="800px" height="800px" loading="lazy">
+	</div>
+	 <h4 class="font-bold text-center"> {titleCard} <h4/>
+	<article class="text-center sm:text-left">
+		{bodyCard}
+	</article>
+</div>

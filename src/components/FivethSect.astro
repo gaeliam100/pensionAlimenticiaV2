@@ -1,0 +1,46 @@
+---
+import Title from "./Title.astro";
+import Servicecard from "./Servicecard.astro";
+---
+<section id="Servicios" class="w-full flex flex-col min-h-screen bg-white">
+   <Title titlePage="Conoce nuestros servicios" textAlign="center"/>
+   <h4 class="text-gray-500 text-center py-2">Pase el cursor sobre una tarjeta o presione para darle la vuelta.</h4>
+    <div class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 items-center gap-14 w-full place-items-center my-10">
+        <Servicecard 
+        service="Asesoramiento en Divorcios" 
+        serviceText="Entendemos lo difícil que puede ser un divorcio. Déjanos ayudarte y acompañarte en este proceso."
+        urlImage="/images/divorcefinal_4.webp"
+        altImage="una foto rota de una pareja casada dando a entender que se han separado"
+        />
+        <Servicecard 
+        service="Sucesiones Testamentarias o Intestamentarias" 
+        serviceText="Estamos aquí para ayudarte en momentos difíciles, asegurando el adecuado proceso de sucesión de tu familiar."
+        urlImage="/images/contrato_1.webp"
+        altImage="manos sosteniendo una pluma y firmando un documento que dice contrato"
+        />
+        <Servicecard 
+        service="Contratos Laborales, Civiles, Mercantiles y de Arrendamiento" 
+        serviceText="Confía en nosotros para redactar y revisar contratos y garantizar transacciones exitosas."
+        urlImage="/images/contrato_2.webp"
+        altImage="persona sosteniendo una pluma gigante y dos personas mirando como han firmado un contraro parece que han comprado algo como un parque tematico"
+        />
+        <Servicecard 
+        service="Guardia, Custodia y Patria Potestad" 
+        serviceText="Protegemos a tu familia resolviendo disputas de guarda, custodia y patria potestad. Contáctanos para la mejor solución."
+        urlImage="/images/Obligaciones_6.webp"
+        altImage="familia de tres, podemos observar a un padre y una madre con su hija"
+        />
+        <Servicecard 
+        service="Clausuras y Multas Administrativas y Ambientales" 
+        serviceText="Resolvemos problemas legales en derecho administrativo para mantener tu negocio en funcionamiento sin interrupciones. ¡Contáctanos hoy mismo!" 
+        urlImage="/images/Demanda_3.webp"
+        altImage="mazo de juez y un porta papeles dando a entender que se ha ganado un caso"
+        />
+        <Servicecard 
+        service="Asesoramiento en Casos de Violencia" 
+        serviceText="No toleres la violencia familiar. Contáctanos para proteger tus derechos y encontrar una solución."
+        urlImage="/images/familyv_5.webp"
+        altImage="mujer llorando y un hombre detras con la mano levantada como una sombra que la acecha por detras dando a entender que la esta maltratando"
+        />
+    </div>
+</section>

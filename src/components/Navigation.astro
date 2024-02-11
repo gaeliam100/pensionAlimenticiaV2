@@ -1,0 +1,84 @@
+---
+const optionsMenu = [
+  {
+    name: "Tu mejor opción",
+    link: "#Inicio",
+    aria: "Ir a la sección de inicio",
+  },
+  {
+    name: "Nuestros Servicios",
+    link: "#services",
+    aria: "Ir a la sección de servicios",
+  },
+  {
+    name: "Lo que debes saber",
+    link: "#testimonials",
+    aria: "Ir a la sección de resultados",
+  },
+  {
+    name: "Testimonios",
+    link: "#whyUs",
+    aria: "Ir a la sección de blog",
+  },
+];
+---
+
+<header
+id="navbar"
+  class="text-white bg-blue-especial transition-colors antialiased sticky z-[901] top-0"
+>
+  <div class="h-20">
+    <section
+      class="grid grid-cols-[auto,1fr] gap-4 lg:grid-cols-[auto,auto,1fr] lg:gap-9 items-center h-full my-0 mx-auto py-0 px-4"
+    >
+      <div class="flex items-center justify-start h-full cursor-pointer">
+        <a href="#" class="flex items-center justify-center text-inherit max-w-[250px]">
+          <img src="/images/logo2.svg" alt="" height="70" width="70">
+        <span class="hidden sm:flex">
+          Garcia y Villegas Asesoria Especializada  
+        </span>
+        </a>
+      </div>
+      <nav class="hidden lg:flex ">
+        <ul class="lg:grid grid-cols-4 h-full">
+        {
+          optionsMenu.map((option, index) => (
+            <li class="flex items-center  h-full py-0 px-3 font-semibold text-base leading-6 cursor-pointer text-white">
+              <a class="mr-2" href={option.link} aria-label={option.aria}>
+                {option.name}
+              </a>
+            </li>
+          ))
+        }
+        </ul>
+      </nav>
+      <div class="flex items-center w-full h-full">
+        <button
+          class="ml-auto h-10 py-0 px-6 border-2 border-[#eeee] rounded-lg text-white text-base hover:border-[#fff] cursor-pointer transition"
+        >
+          Contacto
+        </button>
+        <button 
+        class=" lg:hidden ml-2 h-10 py-0 px-2 border-2 border-[#eeee] rounded-lg text-white text-base hover:border-[#fff] cursor-pointer transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-menu-2"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M4 6l16 0"></path><path d="M4 12l16 0"></path><path
+              d="M4 18l16 0"></path></svg
+          >
+        </button>
+      </div>
+    </section>
+  </div>
+
+</header>
