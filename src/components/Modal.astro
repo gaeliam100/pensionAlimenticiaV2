@@ -1,98 +1,83 @@
-<div id="modal-component-content" class="fixed inset-0 hidden">
-    <div
-        class="modal-flex-content flex items-end justify-center min-h-screen pt-4 px-4 pb-20 sm:block sm:p-0"
-    >
+---
+import Logo from "./Logo.astro"
+---
+<div id="modal-component-container" class="fixed w-full h-full top-0 z-50 hidden">
+    <div class="modal-flex-container flex items-center justify-center min-h-screen pt-4px-4 pb-20 text-center max-w-full">
         <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-75">
         </div>
+        
+        <div class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"></div>
 
-        <div
-            class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"
-        >
-            &nbsp;
-        </div>
-        <form
-            id="modal-container"
-            class="modal-container inline-block align-bottom bg-white rounded-md text-left overflow-hidden shadow-xl transform transition-all
-        sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full"
-            method="post"
-        >
+        <div class="modal-container inline-block align-bottom  bg-white rounded-lg text-left overflow-hidden shadow-lx transform  transition-all sm:my-8 sm:max-w-3xl w-full" >
+            <form id="formsubmit">
+            
             <div class="modal-wrapper bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div class="modal-wrapper-flex sm:flex sm:items-start">
-                    <div
-                        class="modal-icon mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm-10"
-                    >
-                        <img
-                            class="w-full object-cover"
-                            src="images/mas_calro-removebg-preview.webp"
-                            alt="Logo del despacho"
-                        />
+                    <div class="modal-icon mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-especial sm:x-0 sm:h-10 sm:w-10">
+                        <Logo width="60" height="60" idSvg="white"/>
                     </div>
-                    <div
-                        class="modal-content text-center mt-3 sm:mt-0 sm:ml-4 sm:text-left w-full"
-                    >
-                        <h3 class="text-lg font-medium text-gray-900">
-                            Formulario de Contacto
-                        </h3>
-                        <div class="modal-form flex flex-col gap-4 w-full">
-                            <div class="flex gap-4">
-                                <div class="w-full">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        class="relative bg-gray-50ring-0 outline-none border border-neutral-500 text-neutral-900 placeholder-violet-700 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 checked:bg-emerald-500"
-                                        placeholder="Nombre..."
-                                        required
-                                        id="name"
-                                    />
-                                </div>
-                                <div class="w-full">
-                                    <input
-                                        type="text"
-                                        class="relative bg-gray-50ring-0 outline-none border border-neutral-500 text-neutral-900 placeholder-violet-700 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 checked:bg-emerald-500"
-                                        placeholder="Correo..."
-                                        required
-                                        name="email"
-                                    />
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <textarea
-                                    name="message"
-                                    id="message"
-                                    cols="30"
-                                    rows="5"
-                                    placeholder="mensaje"
-                                    class="relative bg-gray-50ring-0 outline-none border border-neutral-500 text-neutral-900 placeholder-violet-700 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 checked:bg-emerald-500"
-                                    required></textarea>
-                            </div>
+                    <div class="modal-content text-center mt-3 sm:mt-0 sm:ml-4 sm:text-left w-full">
+                        <h3 class=" text-lg font-medium text-gray-900">Formulario de contacto</h3>
+                        <div class=" mt-2">
+                            <p class="text-gray-500 text-sm">Estas por enviar un mensaje</p>
+                        </div>
+                        <div class="mt-2">
+                                <section class=" flex flex-col">
+                                    <section class="flex flex-col items-center  md:flex-row  justify-between flex-grow mb-4 gap-4">
+                                        <div class="grid w-full md:max-w-xs items-center gap-1.5">
+                                            <input
+                                              placeholder="Ana Maria Lopez Martinez"
+                                              type="text"
+                                              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                            />
+                                        </div>                          
+                                        <div class="grid w-full md:max-w-xs items-center gap-1.5">
+                                            <input
+                                              placeholder="ejemplo@email.com"
+                                              type="email"
+                                              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                            />
+                                        </div>                                
+                                    </section>
+                                    <textarea style="resize: none;"  class="flex h-36 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+                                    name="" id="" cols="30" rows="30" placeholder="Necesito una Asesoria para mi caso de pensión alimenticia" >
+                                    </textarea>  
+                                </section>
                         </div>
                     </div>
                 </div>
             </div>
-            <div
-                class="modal-actions bg-gray-50 py-3 px-4 sm:px-6 sm:flex sm:flex-row sm:justify-end"
-            >
-                <button type="button"
-                    id="close-modal"
-                    class="w-full inline-flex justify-center rounded-md border border-gray-300 shadow-md px-4 py-2 bg-gray-100 font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blue-200
-                sm:ml-3 sm:w-auto sm:text-sm sm:mt-0"
-                    >Cancelar</button
-                >
+            <div class="modal-Actions bg-gray-50 px-3 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                 <button type="submit"
-                    id="send"
-                    class="w-full inline-flex justify-center rounded-md border border-gray-300 shadow-md px-4 py-2 mt-3 bg-blue-100 font-medium text-gray-700 hover:bg-blue-200 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blue-400
-                sm:ml-3 sm:w-auto sm:text-sm sm:mt-0"
-                    >Enviar</button
-                >
+                class="w-full inline-flex justify-center rounded-md border border-transparent mt-3
+                shadow-lg px-4 py-2 font-medium text-navwhite bg-blue-especial 
+                transform transition-all active:scale-95
+                sm:ml-3 sm:w-auto sm:text-sm"
+                >Enviar</button>
+                <button  id="close-modal" class="
+                w-full inline-flex justify-center rounded-md border border-transparent mt-3
+                shadow-lg px-4 py-2 font-medium 
+                text-gray-900
+                bg-white 
+                hover:bg-gray-50  
+                transform transition-all active:scale-95
+                sm:ml-3 sm:w-auto sm:text-sm"
+                >Cancelar
+            </button>
+
             </div>
         </form>
+
+        </div>
     </div>
+
 </div>
 <script>
-    const closeModal = document.getElementById("close-modal");
-    const modalComponent = document.getElementById("modal-component-content");
+const closeModal = document.getElementById("close-modal");
+    const modalComponent = document.getElementById("modal-component-container");
     const openModal = document.querySelectorAll(".open-modal");
-    const modalForm = document.getElementById("modal-container");
+    const modalForm = document.querySelector(".modal-container");
+    const formsubmit= document.getElementById("formsubmit");
     openModal.forEach((element) => {
         element.addEventListener("click", () => {
             openModalF();
@@ -127,28 +112,7 @@
         element.classList.remove(...classToRemove);
         element.classList.add(...classToAdd);
     };
-    const showToast = (value) => {
-        if (value === 1) {
-            Toastify({
-                text: "Correo enviado correctamente nos pondremos en contacto contigo lo antes posible",
-                duration: 6000,
-                style: {
-                    background:
-                        "linear-gradient(207deg, rgba(58,63,180,1) 0%, rgba(29,90,253,1) 50%, rgba(69,160,252,1) 100%);",
-                },
-            }).showToast();
-        } else {
-            Toastify({
-                text: "Error al enviar el correo, intentalo de nuevo mas tarde",
-                duration: 6000,
-                style: {
-                    background:
-                        "linear-gradient(352deg, rgba(2,0,36,1) 6%, rgba(121,9,9,1) 43%, rgba(255,0,3,1) 77%);",
-                },
-            }).showToast();
-        }
-    };
-    modalForm.addEventListener("submit", async (e) => {
+    formsubmit.addEventListener("submit", async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("name", e.target[0].value);
@@ -165,13 +129,13 @@
 
             if (!response.ok) {
                 closeModalF();
-                showToast(1);
+                // showToast(1);
             } else {
                 closeModalF();
-                showToast(0);
+                // showToast(0);
             }
         } catch (error) {
-            showToast(0);
+            // showToast(0);
         }
     });
 </script>
