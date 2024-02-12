@@ -83,29 +83,52 @@ const { title } = Astro.props;
   duration: 2,
 })
 const tl=gsap.timeline();
+// ScrollTrigger.create({
+//     trigger:"#panel",
+//     start: "top top",
+//     end: "bottom bottom",
+//     pin: true,
+//     pinSpacing: false,
+// })
+
+const navbar=document.getElementById('navbar');
+const ulElements=document.getElementById('ulElements');
+const secondSect=document.getElementById('Intersection');
+const navContact=document.getElementById('navContact');
+const changeBackground=()=>{
+navbar.classList.add('bg-white');
+ulElements.classList.remove('text-white');
+ulElements.classList.add('text-black');
+navContact.classList.remove('text-white');
+navContact.classList.add('text-black');
+navContact.classList.remove('border-[#eeee]')
+navContact.classList.add('border-[#000]')
+navbar.classList.remove('bg-blue-especial');
+} 
+const changeBackground2=()=>{
+navbar.classList.add('bg-blue-especial');
+ulElements.classList.add('text-white');
+ulElements.classList.remove('text-black');
+navContact.classList.add('text-white');
+navContact.classList.remove('text-black');
+navContact.classList.add('border-[#eeee]')
+navContact.classList.remove('border-[#000]')
+navbar.classList.remove('bg-white');
+}
+// const watcher=new IntersectionObserver(changeBackground,{
+//   root:null,
+//   rootMargin:'0px 0px 0px 0px',
+//   threshold:1.0,
+// });
+// watcher.observe(secondSect);
 ScrollTrigger.create({
-    trigger:"#panel",
-    start: "top top",
-    end: "bottom bottom",
-    pin: true,
-    pinSpacing: false,
-})
-window.addEventListener('scroll', function() {
-    var navbar = document.getElementById('navbar'); // Reemplaza 'tuNavbar' con el ID de tu barra de navegación
-    var scrollPosition = window.scrollY || document.documentElement.scrollTop;
-
-    // Calcula el porcentaje de desplazamiento
-    var scrollPercentage = (scrollPosition / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-
-    if (scrollPercentage >= 13) {
-        navbar.classList.remove('text-white', 'bg-blue-especial'); 
-        navbar.classList.add('text-black', 'bg-white'); 
-    } else {
-        navbar.classList.remove('text-black', 'bg-white'); 
-        navbar.classList.add('text-white', 'bg-blue-especial');
-    }
+  trigger: secondSect,
+  start: "top-=80", // Ajusta según tus necesidades
+  onEnter: () => changeBackground(),
+  onLeave: () => changeBackground2(),
+  onEnterBack: () => changeBackground(),
+  onLeaveBack: () => changeBackground2(),
 });
-
 </script>
 <style is:global>
   *{

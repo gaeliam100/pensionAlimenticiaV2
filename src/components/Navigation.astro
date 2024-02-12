@@ -32,7 +32,7 @@ id="navbar"
       class="grid grid-cols-[auto,1fr] gap-4 lg:grid-cols-[auto,auto,1fr] lg:gap-9 items-center h-full my-0  py-0 px-4 mx-auto max-w-[1920px]"
     >
       <div class="flex items-center justify-start h-full cursor-pointer">
-        <a href="#" class="flex items-center justify-center text-inherit max-w-[250px]">
+        <a href="#" class="flex items-center justify-center text-current max-w-[250px]">
           <img src="/images/logo2.svg" alt="" height="70" width="70">
         <span class="hidden sm:flex">
           Garcia y Villegas Asesoria Especializada  
@@ -40,10 +40,10 @@ id="navbar"
         </a>
       </div>
       <nav class="hidden lg:flex ">
-        <ul class="lg:grid grid-cols-4 h-full">
+        <ul id="ulElements" class="text-white lg:grid grid-cols-4 h-full">
         {
           optionsMenu.map((option, index) => (
-            <li class="flex items-center  h-full py-0 px-3 font-semibold text-base leading-6 cursor-pointer text-white">
+            <li class="flex items-center  h-full py-0 px-3 font-semibold text-base leading-6 cursor-pointer ">
               <a class="mr-2" href={option.link} aria-label={option.aria}>
                 {option.name}
               </a>
@@ -53,8 +53,8 @@ id="navbar"
         </ul>
       </nav>
       <div class="flex items-center w-full h-full">
-        <button
-          class="ml-auto h-10 py-0 px-6 border-2 border-[#eeee] rounded-lg text-white text-base hover:border-[#fff] cursor-pointer transition"
+        <button id="navContact"
+          class="ml-auto h-10 py-0 px-6 border-2 border-[#eeee]  text-white  rounded-lg text-base hover:border-[#fff] cursor-pointer transition"
         >
           Contacto
         </button>
