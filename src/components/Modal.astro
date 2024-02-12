@@ -27,6 +27,7 @@ import Logo from "./Logo.astro"
                                         <div class="grid w-full md:max-w-xs items-center gap-1.5">
                                             <input
                                               placeholder="Ana Maria Lopez Martinez"
+                                              required
                                               type="text"
                                               class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                             />
@@ -34,12 +35,13 @@ import Logo from "./Logo.astro"
                                         <div class="grid w-full md:max-w-xs items-center gap-1.5">
                                             <input
                                               placeholder="ejemplo@email.com"
+                                              required
                                               type="email"
                                               class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                             />
                                         </div>                                
                                     </section>
-                                    <textarea style="resize: none;"  class="flex h-36 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+                                    <textarea required style="resize: none;"  class="flex h-36 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
                                     name="" id="" cols="30" rows="30" placeholder="Necesito una Asesoria para mi caso de pensión alimenticia" >
                                     </textarea>  
                                 </section>
@@ -48,13 +50,13 @@ import Logo from "./Logo.astro"
                 </div>
             </div>
             <div class="modal-Actions bg-gray-50 px-3 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                <button type="submit"
+                <button id="sendButton" type="submit" 
                 class="w-full inline-flex justify-center rounded-md border border-transparent mt-3
                 shadow-lg px-4 py-2 font-medium text-navwhite bg-blue-especial 
                 transform transition-all active:scale-95
                 sm:ml-3 sm:w-auto sm:text-sm"
                 >Enviar</button>
-                <button  id="close-modal" class="
+                <button type="button" id="close-modal" class="
                 w-full inline-flex justify-center rounded-md border border-transparent mt-3
                 shadow-lg px-4 py-2 font-medium 
                 text-gray-900
@@ -78,6 +80,7 @@ const closeModal = document.getElementById("close-modal");
     const openModal = document.querySelectorAll(".open-modal");
     const modalForm = document.querySelector(".modal-container");
     const formsubmit= document.getElementById("formsubmit");
+    const sendButton= document.getElementById("sendButton");
     openModal.forEach((element) => {
         element.addEventListener("click", () => {
             openModalF();
@@ -114,6 +117,7 @@ const closeModal = document.getElementById("close-modal");
     };
     formsubmit.addEventListener("submit", async (e) => {
         e.preventDefault();
+        (sendButton as HTMLButtonElement).disabled = true;
         const formData = new FormData();
         formData.append("name", e.target[0].value);
         formData.append("email", e.target[1].value);
@@ -130,6 +134,7 @@ const closeModal = document.getElementById("close-modal");
             if (!response.ok) {
                 closeModalF();
                 // showToast(1);
+                (sendButton as HTMLButtonElement).disabled = false;
             } else {
                 closeModalF();
                 // showToast(0);
