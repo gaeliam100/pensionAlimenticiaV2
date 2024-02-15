@@ -89,6 +89,10 @@ const navContact=document.getElementById('navContact');
 const navContact2=document.getElementById('navContact2');
 const svgNav=document.getElementById('svgNavbar');
 const paths=svgNav.querySelectorAll('path');
+const HamburgerMenu=document.getElementById('HamburgerMenu');
+const mobileMenu=document.getElementById('mobileNavigation');
+const closeButton=document.getElementById('closeButton');
+const html=document.querySelector('html');
 const changeBackground=()=>{
   Array.from(paths).map((path)=>{
     path.style.fill='#000000';
@@ -103,6 +107,8 @@ navContact2.classList.remove('text-current');
 navContact2.classList.add('text-black');
 navContact.classList.add('border-[#000]')
 navbar.classList.remove('bg-blue-especial');
+HamburgerMenu.classList.remove('text-white');
+HamburgerMenu.classList.add('text-black');
 } 
 const changeBackground2=()=>{
   Array.from(paths).map((path)=>{
@@ -118,13 +124,9 @@ navContact.classList.remove('border-[#000]')
 navContact2.classList.remove('text-black');
 navContact2.classList.add('text-current');
 navbar.classList.remove('bg-white');
+HamburgerMenu.classList.remove('text-black');
+HamburgerMenu.classList.add('text-white');
 }
-// const watcher=new IntersectionObserver(changeBackground,{
-//   root:null,
-//   rootMargin:'0px 0px 0px 0px',
-//   threshold:1.0,
-// });
-// watcher.observe(secondSect);
 ScrollTrigger.create({
   trigger: secondSect,
   start: "top-=80", // Ajusta según tus necesidades
@@ -133,6 +135,16 @@ ScrollTrigger.create({
   onEnterBack: () => changeBackground(),
   onLeaveBack: () => changeBackground2(),
 });
+HamburgerMenu.onclick=()=>{
+mobileMenu.classList.remove('left-[100%]');
+mobileMenu.classList.add('left-0');
+html.style.overflow='hidden';
+}
+closeButton.onclick=()=>{
+mobileMenu.classList.remove('left-0');
+mobileMenu.classList.add('left-[100%]');
+html.style.overflow='scroll';
+}
 </script>
 <style is:global>
   *{

@@ -34,7 +34,7 @@ id="navbar"
     >
       <div class="flex items-center justify-start h-full cursor-pointer">
         <a id="navContact2" href="#" class="flex font-semibold items-center justify-center text-current max-w-[250px]">
-          <Logo  width="90" height="90" idSvg="svgNavbar"/>
+          <Logo  width="90" height="90" idSvg="svgNavbar" fill="#fff"/>
         <span class="hidden sm:flex">
           Garcia y Villegas Asesoria Especializada  
         </span>
@@ -61,6 +61,7 @@ id="navbar"
           Contacto
         </button>
         <button 
+        id="HamburgerMenu"
         class=" lg:hidden ml-2 h-10 py-0 px-2 border-2 border-[#eeee] rounded-lg text-white text-base hover:border-[#fff] cursor-pointer transition"
         >
           <svg
@@ -82,5 +83,38 @@ id="navbar"
       </div>
     </section>
   </div>
-
+  <section id="mobileNavigation" class="lg:hidden absolute bg-white w-full h-screen left-[100%] duration-700 ease-in-out top-0">
+    
+    <div class="flex justify-between items-center">
+      <div class="flex items-center justify-start h-full cursor-pointer">
+        <a id="navContact2" href="#" class="flex font-semibold items-center justify-center text-current max-w-[250px]">
+          <Logo  width="90" height="90" idSvg="svgNavbar" fill="#000" />
+        <span class="flex text-black">
+          Garcia y Villegas Asesoria Especializada  
+        </span>
+        </a>
+      </div>
+      <button id="nsavContact"
+      class="open-modal ml-auto h-10 py-0 px-6 border-2 border-[#eeee]  text-black  rounded-lg text-base hover:border-[#fff] cursor-pointer transition"
+    >
+      Contacto
+    </button>
+    <button id="closeButton" class=" lg:hidden ml-2 h-10 py-0 px-2 border-2 border-[#eeee] rounded-lg text-black text-base hover:border-[#fff] cursor-pointer transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+    </button>
+    </div>   
+    <ul class="w-full text-base text-black ">
+          {
+            optionsMenu.map((option, index) => (
+              <li class="flex items
+              -center  h-16 py-0 px-3 font-semibold text-lg leading-6 cursor-pointer items-center">
+                <a class="mr-2" href
+                ={option.link} aria-label={option.aria}>
+                  {option.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+  </section>
 </header>
