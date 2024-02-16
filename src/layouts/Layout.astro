@@ -92,7 +92,6 @@ const paths=svgNav.querySelectorAll('path');
 const HamburgerMenu=document.getElementById('HamburgerMenu');
 const mobileMenu=document.getElementById('mobileNavigation');
 const closeButton=document.getElementById('closeButton');
-const html=document.querySelector('html');
 const changeBackground=()=>{
   Array.from(paths).map((path)=>{
     path.style.fill='#000000';
@@ -138,12 +137,10 @@ ScrollTrigger.create({
 HamburgerMenu.onclick=()=>{
 mobileMenu.classList.remove('left-[100%]');
 mobileMenu.classList.add('left-0');
-html.style.overflow='hidden';
 }
 closeButton.onclick=()=>{
 mobileMenu.classList.remove('left-0');
 mobileMenu.classList.add('left-[100%]');
-html.style.overflow='scroll';
 }
 </script>
 <style is:global>
