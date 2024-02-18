@@ -73,6 +73,9 @@ module.exports = {
 		  },
 		  letterSpacing:{
 			'wider-2': '-0.01em',
+		},
+		backgroundImage:{
+			'b-blue-to':'linear-gradient(128.87deg,#2b60bc 14.05%,#4ca3cf 89.3%);'
 		}
 	},
 	plugins: [],

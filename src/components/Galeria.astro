@@ -24,7 +24,7 @@ const data = [
     <div class=" flex flex-col justify-around md:flex-row " id="gallery">
         {
         data.map((item, index) => (
-        <a  href={item.photo} 
+        <a  aria-label="Abrir Infografia" href={item.photo} 
             class="p-5 flex items-center justify-center"
             data-pswp-width={item.width} 
             data-pswp-height={item.height} 
