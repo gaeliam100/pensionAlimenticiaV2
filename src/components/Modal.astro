@@ -1,20 +1,22 @@
 ---
 import Logo from "./Logo.astro"
+import Loader from "./Loader.astro"
+import "toastify-js/src/toastify.css"
 ---
-<div id="modal-component-container" class="fixed w-full h-full top-0 z-50 hidden">
+<div id="modal-component-container" class="fixed w-full h-full top-0 z-50 transition-all duration-1000  hidden">
     <div class="modal-flex-container flex items-center justify-center min-h-screen pt-4px-4 pb-20 text-center max-w-full">
         <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-75">
         </div>
         
         <div class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"></div>
 
-        <div class="modal-container inline-block align-bottom  bg-white rounded-lg text-left overflow-hidden shadow-lx transform  transition-all sm:my-8 sm:max-w-3xl w-full" >
+        <div class="modal-container inline-block align-bottom  bg-white rounded-lg text-left overflow-hidden shadow-lx transform  transition-all duration-1000 sm:my-8 sm:max-w-3xl w-full" >
             <form id="formsubmit">
             
             <div class="modal-wrapper bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div class="modal-wrapper-flex sm:flex sm:items-start">
                     <div class="modal-icon mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-especial sm:x-0 sm:h-10 sm:w-10">
-                        <Logo width="60" height="60" idSvg="white"/>
+                        <Logo width="60" height="60" idSvg="white" fill="#fff"/>
                     </div>
                     <div class="modal-content text-center mt-3 sm:mt-0 sm:ml-4 sm:text-left w-full">
                         <h3 class=" text-lg font-medium text-gray-900">Formulario de contacto</h3>
@@ -41,31 +43,33 @@ import Logo from "./Logo.astro"
                                             />
                                         </div>                                
                                     </section>
-                                    <textarea required style="resize: none;"  class="flex h-36 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
-                                    name="" id="" cols="30" rows="30" placeholder="Necesito una Asesoria para mi caso de pensión alimenticia" >
-                                    </textarea>  
+                                    <textarea required style="resize:none;"  class="flex h-36 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+                                    name="Message" id="message" cols="30" rows="30" placeholder="Necesito una Asesoria para mi caso de pensión alimenticia"></textarea>  
                                 </section>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-Actions bg-gray-50 px-3 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                <button id="sendButton" type="submit" 
-                class="w-full inline-flex justify-center rounded-md border border-transparent mt-3
-                shadow-lg px-4 py-2 font-medium text-navwhite bg-blue-especial 
-                transform transition-all active:scale-95
-                sm:ml-3 sm:w-auto sm:text-sm"
-                >Enviar</button>
-                <button type="button" id="close-modal" class="
-                w-full inline-flex justify-center rounded-md border border-transparent mt-3
-                shadow-lg px-4 py-2 font-medium 
-                text-gray-900
-                bg-white 
-                hover:bg-gray-50  
-                transform transition-all active:scale-95
-                sm:ml-3 sm:w-auto sm:text-sm"
-                >Cancelar
-            </button>
+                <Loader/>
+                <div id="buttons">
+                    <button id="sendButton" type="submit" 
+                    class="w-full inline-flex justify-center rounded-md border border-transparent mt-3
+                    shadow-lg px-4 py-2 font-medium text-navwhite bg-blue-especial 
+                    transform transition-all active:scale-95
+                    sm:ml-3 sm:w-auto sm:text-sm"
+                    >Enviar</button>
+                    <button type="button" id="close-modal" class="
+                    w-full inline-flex justify-center rounded-md border border-transparent mt-3
+                    shadow-lg px-4 py-2 font-medium 
+                    text-gray-900
+                    bg-white 
+                    hover:bg-gray-50  
+                    transform transition-all active:scale-95
+                    sm:ml-3 sm:w-auto sm:text-sm"
+                    >Cancelar
+                    </button>
+                </div>
 
             </div>
         </form>
@@ -75,48 +79,72 @@ import Logo from "./Logo.astro"
 
 </div>
 <script>
-const closeModal = document.getElementById("close-modal");
-    const modalComponent = document.getElementById("modal-component-container");
-    const openModal = document.querySelectorAll(".open-modal");
-    const modalForm = document.querySelector(".modal-container");
+    import Toastify from 'toastify-js';
+    const btnCloseModal = document.getElementById("close-modal");
+    const modalContainer = document.getElementById("modal-component-container");
+    const btnOpenModal = document.querySelectorAll(".open-modal");
+    const modal = document.querySelector(".modal-container");
     const formsubmit= document.getElementById("formsubmit");
     const sendButton= document.getElementById("sendButton");
-    openModal.forEach((element) => {
+    const loader= document.getElementById("loader");
+    const buttons= document.getElementById("buttons");
+    btnOpenModal.forEach((element) => {
         element.addEventListener("click", () => {
-            openModalF();
+            openModal();
         });
     });
 
-    // openModal.addEventListener("click", () => {
-    //     console.log("Abierto");
-    //     openModalF();
-    // });
-    closeModal.addEventListener("click", () => {
-        closeModalF();
+    btnCloseModal.addEventListener("click", () => {
+        closeModal();
     });
-    const openModalF = () => {
+    const openModal = () => {
         document.getElementsByTagName("body")[0].style.overflow = "hidden";
-        showAndHide(
-            modalComponent,
-            ["block", "bg-fadeIn"],
-            ["hidden", "bg-fadeOut"],
-        );
-        showAndHide(modalForm, ["modal-scaleIn"], ["modal-scaleOut"]);
-    };
-    const closeModalF = () => {
-        document.getElementsByTagName("body")[0].style.overflow = "auto";
-        showAndHide(modalComponent, ["bg-fadeOut"], ["bg-fadeIn"]);
-        showAndHide(modalForm, ["modal-scaleOut"], ["modal-scaleIn"]);
+        //Agregamos clases que hagan que modalContainer sea visible con opacidad de 0 a 1
+        modalContainer.classList.remove("hidden");
+        modalContainer.classList.add("opacity-0", "pointer-events-none");
         setTimeout(() => {
-            showAndHide(modalComponent, ["hidden"], ["block"]);
-        }, 500);
+            modalContainer.classList.remove("opacity-0");
+            modalContainer.classList.add("pointer-events-auto");
+        }, 100);
     };
-    const showAndHide = (element, classToAdd, classToRemove) => {
-        element.classList.remove(...classToRemove);
-        element.classList.add(...classToAdd);
+    const closeModal = () => {
+        document.getElementsByTagName("body")[0].style.overflow = "auto";
+        modalContainer.classList.remove("opacity-100");
+        modalContainer.classList.add("opacity-0");
+        modal.classList.add("scale-95");
+        setTimeout(() => {
+            modalContainer.classList.add("hidden");
+            modalContainer.classList.remove("pointer-events-auto");
+        }, 1000);
     };
+    const showToast=(num)=>{
+        if(num===0){
+            Toastify({
+                text: "Mensaje enviado con éxito",
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                stopOnFocus: true,
+            }).showToast();
+        }else{
+            Toastify({
+                text: "Error al enviar el mensaje",
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+                stopOnFocus: true,
+            }).showToast();
+        }
+    }
     formsubmit.addEventListener("submit", async (e) => {
         e.preventDefault();
+        buttons.style.display = "none";
+        loader.classList.remove("hidden");
+        loader.classList.add("flex");
         (sendButton as HTMLButtonElement).disabled = true;
         const formData = new FormData();
         formData.append("name", e.target[0].value);
@@ -132,12 +160,15 @@ const closeModal = document.getElementById("close-modal");
             );
 
             if (!response.ok) {
-                closeModalF();
-                // showToast(1);
+                closeModal();
+                loader.classList.add("hidden");
+                loader.classList.remove("flex");
+                buttons.style.display = "flex";
+                 showToast(1);
                 (sendButton as HTMLButtonElement).disabled = false;
             } else {
-                closeModalF();
-                // showToast(0);
+                closeModal();
+                 showToast(0);
             }
         } catch (error) {
             // showToast(0);

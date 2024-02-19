@@ -75,58 +75,40 @@ const { title } = Astro.props;
   scrollTrigger:{
       start: "top center",
       end: "bottom center",
-      scrub:3,
+      scrub:2,
       toggleActions: "restart pause reverse reset",
   },
-  x:400,
+  x:280,
   duration: 2,
 })
-const tl=gsap.timeline();
+const firstSect=document.getElementById('firstSect');
 const navbar=document.getElementById('navbar');
-const ulElements=document.getElementById('ulElements');
 const secondSect=document.getElementById('Intersection');
-const navContact=document.getElementById('navContact');
-const navContact2=document.getElementById('navContact2');
 const svgNav=document.getElementById('svgNavbar');
 const paths=svgNav.querySelectorAll('path');
 const HamburgerMenu=document.getElementById('HamburgerMenu');
 const mobileMenu=document.getElementById('mobileNavigation');
 const closeButton=document.getElementById('closeButton');
 const changeBackground=()=>{
-  Array.from(paths).map((path)=>{
-    path.style.fill='#000000';
-  })
 navbar.classList.add('bg-white');
-ulElements.classList.remove('text-white');
-ulElements.classList.add('text-black');
-navContact.classList.remove('text-white');
-navContact.classList.add('text-black');
-navContact.classList.remove('border-[#eeee]')
-navContact2.classList.remove('text-current');
-navContact2.classList.add('text-black');
-navContact.classList.add('border-[#eeee]')
+navbar.classList.remove('text-white');
+navbar.classList.add('text-black');
+firstSect.classList.add('hidden');
 HamburgerMenu.classList.remove('text-white');
 HamburgerMenu.classList.add('text-black');
 } 
 const changeBackground2=()=>{
-  Array.from(paths).map((path)=>{
-    path.style.fill='#ffffff';
-  })
-ulElements.classList.add('text-white');
-ulElements.classList.remove('text-black');
-navContact.classList.add('text-white');
-navContact.classList.remove('text-black');
-navContact.classList.add('border-[#eeee]')
-navContact.classList.remove('border-[#eeee]')
-navContact2.classList.remove('text-black');
-navContact2.classList.add('text-current');
 navbar.classList.remove('bg-white');
+navbar.classList.add('text-white');
+navbar.classList.remove('text-black');
+firstSect.classList.remove('hidden');
 HamburgerMenu.classList.remove('text-black');
 HamburgerMenu.classList.add('text-white');
 }
 ScrollTrigger.create({
   trigger: secondSect,
-  start: "top-=80", // Ajusta según tus necesidades
+  start: "top-=85", // Ajusta según tus necesidades
+  end: "bottom+=185", // Ajusta según tus necesidades
   onEnter: () => changeBackground(),
   onLeave: () => changeBackground2(),
   onEnterBack: () => changeBackground(),

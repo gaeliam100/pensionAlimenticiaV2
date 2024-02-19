@@ -15,38 +15,40 @@ import Back from '../components/Back.astro';
 ---
 
 <Layout title="Pensión Alimenticia">
-	<Navigation />
-	<main class="">
-		<section class="fixed top-0  w-full ">
-			<div class="">
-				<FirstSect />
-			</div>	
-		</section>
-		<section id="Intersection"  class="relative z-[6] mt-[100vh] border   w-full bg-white">
-			<section  class="max-w-[1920px] mx-auto px-4 lg:px-12">
-				<div class="my-24">
-					<SecondSect/>
-				</div>
+	<section class="relative flex flex-col min-h-screen">
+		<Navigation />
+		<main class=" flex-grow">
+			<section id="firstSect" class="fixed top-0  w-full ">
 				<div class="">
-					<ThirdthSect/>
-				</div>
-				<div class="my-24">
-					<FourthSection/>
-				</div>
-				<div class="my-24">
-					<Galeria/>
-				</div>
-				<div class="my-24">
-					<FivethSect/>
-				</div>
-				<div id="whyUs" class="my-12 grid place-items-center">
-					<SixSect/>
-				</div>
-				<Whats/>
+					<FirstSect />
+				</div>	
 			</section>
-		</section>
-		<Modal/>
-	</main>
-	<Footer/>
+			<section id="Intersection"  class="relative  mt-[150vh]  w-full bg-white">
+				<section  class="max-w-[1920px] mx-auto px-8 lg:px-12">
+					<div class="my-24">
+						<SecondSect/>
+					</div>
+					<div class="">
+						<ThirdthSect/>
+					</div>
+					<div class="my-24">
+						<FourthSection/>
+					</div>
+					<div class="my-24">
+						<Galeria/>
+					</div>
+					<div class="my-24">
+						<FivethSect/>
+					</div>
+					<div id="whyUs" class="my-12 grid place-items-center">
+						<SixSect/>
+					</div>
+					<Whats/>
+				</section>
+			</section>
+			<Modal/>
+			<Footer/>
+		</main>
+	</section>
 </Layout>
 
