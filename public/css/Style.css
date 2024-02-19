@@ -240,7 +240,7 @@ h1,h2,h3,h4,h5,h6{
 
 .wrapper .icon1 {
   position: relative;
-  background: var(--color-resaltado);
+  background: linear-gradient(128.87deg,#2b60bc 14.05%,#4ca3cf 89.3%);;
   border-radius: 20%;
   padding: 15px;
   margin: 10px;
@@ -257,7 +257,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .wrapper .icon2 {
   position: relative;
-  background: var(--color-resaltado);
+  background: linear-gradient(128.87deg,#2b60bc 14.05%,#4ca3cf 89.3%);;
   border-radius: 20%;
   padding: 15px;
   margin: 10px;
@@ -274,7 +274,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .wrapper .icon3 {
   position: relative;
-  background: var(--color-resaltado);
+  background: linear-gradient(128.87deg,#2b60bc 14.05%,#4ca3cf 89.3%);
   border-radius: 20%;
   padding: 15px;
   margin: 10px;
